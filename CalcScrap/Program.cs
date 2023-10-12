@@ -1,4 +1,6 @@
-﻿using System;
+﻿/* Assumption is that 10% of space is applied also to all borders */
+
+using System;
 
 namespace CalcScrap
 {
