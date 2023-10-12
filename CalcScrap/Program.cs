@@ -11,52 +11,42 @@ namespace CalcScrap
             double length = 210;
             double width = 130;
             double weight = 300;
-            double r = 25;
+            double radius = 25;
 
             for (int i = 0; i < 10; i++)
             {
-                int intValue = CalcLengthCircles(length, r);
-                int intValue2 = CalcWidthCircles(width, r);
-                int intValue3 = CalcCircles(intValue, intValue2);
+                int lengthCircles = CalcCircles(length, radius);
+                int widthCircles = CalcCircles(width, radius);
+                int allCircles = CalcAllCircles(lengthCircles, widthCircles);
 
-                double result = CirclePercentage(length, width, weight, r, intValue3);
+                double result = CirclePercentage(length, width, weight, radius, allCircles);
 
-                Console.WriteLine($"Input: Length: {length}, Width: {width}, Radius: {r}, Weight: {weight}");
+                Console.WriteLine($"Input: Length: {length}, Width: {width}, Radius: {radius}, Weight: {weight}");
                 Console.WriteLine($"Weight of Scrap (iteration {i + 1}): {result}");
 
                 length += 20;
                 width += 20;
                 weight += 50;
-                r += 1;
+                radius += 1;
             }
 
             Console.ReadLine();
         }
 
-        static int CalcLengthCircles(double length, double r)
+        static int CalcCircles(double dimension, double radius)
         {
-            double result = length / (2.1 * r + 0.1 * r);
-            int intValue = (int)Math.Floor(result);
-            return intValue;
+            return (int)Math.Floor(dimension / (2.1 * radius + 0.1 * radius));
         }
 
-        static int CalcWidthCircles(double width, double r)
+        static int CalcAllCircles(int lengthCircles, int widthCircles)
         {
-            double result = width / (2.1 * r + 0.1 * r);
-            int intValue2 = (int)Math.Floor(result);
-            return intValue2;
+            return lengthCircles * widthCircles;
         }
 
-        static int CalcCircles(int intValue, int intValue2)
-        {
-            int intValue3 = intValue * intValue2;
-            return intValue3;
-        }
-
-        static double CirclePercentage(double length, double width, double weight, double r, int intValue3)
+        static double CirclePercentage(double length, double width, double weight, double radius, int allCircles)
         {
             double rectangleArea = length * width;
-            double circlesArea = rectangleArea - ((Math.PI * r * r) * intValue3);
+            double circlesArea = rectangleArea - ((Math.PI * radius * radius) * allCircles);
             double percentage = circlesArea / rectangleArea * 100;
             double result = (percentage / 100) * weight;
             return result;
