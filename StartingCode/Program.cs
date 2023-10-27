@@ -1,41 +1,48 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 class Program
 {
-    static void Main(string[] args)
+    static Random rng = new Random();
+
+    static void Main()
     {
-        string[] arrNames = new string[5];
-        arrNames[0] = "Vesso";
-        arrNames[1] = "Alan Bebera";
-        arrNames[2] = "Ardita123";
-        arrNames[3] = "bebra";
-        arrNames[4] = "amogusыы";
+        List<string> randomNumbers = GenerateRandomNumbersList(10, -100, 100);
 
-        foreach (string name in arrNames)
-        {
-            if (IsValidName(name))
-            {
-                Console.WriteLine($"{name} - Valid Name");
-            }
-            else
-            {
-                Console.WriteLine($"{name} - Invalid Name");
-            }
-        }
+        Console.WriteLine("Original List:");
+        PrintList(randomNumbers);
 
-        Console.ReadLine();
+        var sortedListAsc = randomNumbers.OrderBy(n => int.Parse(n)).ToList();
+        Console.WriteLine("\nSorted Normal:");
+        PrintList(sortedListAsc);
+
+        var sortedListDesc = randomNumbers.OrderByDescending(n => int.Parse(n)).ToList();
+        Console.WriteLine("\nSorted Backwards:");
+        PrintList(sortedListDesc);
+
+        var sortedByLength = randomNumbers.OrderBy(n => n.Length).ThenBy(n => int.Parse(n)).ToList();
+        Console.WriteLine("\nSorted By Length:");
+        PrintList(sortedByLength);
     }
 
-    static bool IsValidName(string name)
+    static List<string> GenerateRandomNumbersList(int count, int min, int max)
     {
-        for (int i = 0; i < name.Length; i++)
+        List<string> numbers = new List<string>();
+
+        for (int i = 0; i < count; i++)
         {
-            char c = name[i];
-            if (!Char.IsLetter(c) && !Char.IsWhiteSpace(c))
-            {
-                return false;
-            }
+            numbers.Add(rng.Next(min, max).ToString());
         }
-        return true;
+
+        return numbers;
+    }
+
+    static void PrintList(List<string> list)
+    {
+        foreach (string item in list)
+        {
+            Console.WriteLine(item);
+        }
     }
 }
