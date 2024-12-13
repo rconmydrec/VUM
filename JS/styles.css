@@ -72,12 +72,12 @@ button:hover {
 }
 
 .select-button {
-    background-color: #007BFF;
+    background-color: #d72d52;
     color: #fff;
 }
 
 .select-button:hover {
-    background-color: #0056b3;
+    background-color: #cf0430;
 }
 
 .select-button:active {
