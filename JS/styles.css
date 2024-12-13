@@ -1,0 +1,265 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f0f4f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#app {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.screen {
+    display: none;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.screen.active {
+    display: block;
+    opacity: 1;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h2, h3 {
+    color: #555;
+}
+
+#player-selection, #subject-selection, #difficulty-selection, #options {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+button {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    outline: none;
+    min-width: 120px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.select-button {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.select-button:hover {
+    background-color: #0056b3;
+}
+
+.select-button:active {
+    background-color: #28a745;
+    transform: scale(0.98);
+}
+
+.select-button.selected {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.option-btn {
+    width: 45%;
+    padding: 10px;
+    margin: 10px 2.5%;
+    background-color: #e2e6ea;
+    color: #333;
+    border: 2px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.1s;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background-color: #c6c8ca;
+    transform: scale(1.02);
+}
+
+.option-btn:active {
+    background-color: #28a745;
+    border-color: #28a745;
+    transform: scale(0.98);
+}
+
+.option-btn.selected {
+    background-color: #e2e6ea;
+    color: #333;
+    border-color: #ced4da;
+}
+
+.option-btn.correct {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #333;
+}
+
+.option-btn.wrong {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #333;
+}
+
+.navigation-buttons, .end-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.next-btn, .prev-btn, .submit-btn, .end-buttons button {
+    min-width: 150px;
+}
+
+button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+
+#selected-players p {
+    font-size: 18px;
+    color: #333;
+}
+
+#player-turn {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.player-color {
+    font-weight: bold;
+}
+
+.player1 { color: #007BFF; }
+.player2 { color: #28a745; }
+.player3 { color: #ffc107; }
+.player4 { color: #dc3545; }
+
+#timer-container {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#timer-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #28a745;
+    border-radius: 5px;
+    transition: width 1s linear, background-color 0.3s;
+}
+
+#timer.end #timer-bar {
+    background-color: #dc3545;
+}
+
+#timer {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #d9534f;
+}
+
+#question-text {
+    margin-bottom: 20px;
+}
+
+#results-list {
+    text-align: left;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#results-list li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#review-container {
+    text-align: left;
+    max-height: 400px;
+    overflow-y: auto;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ced4da;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+}
+
+.correct-answer {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.wrong-answer {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    button {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .option-btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #app {
+        padding: 10px;
+    }
+
+    #timer {
+        font-size: 16px;
+    }
+}
