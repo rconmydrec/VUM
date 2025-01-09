@@ -6,6 +6,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/rconmydrec/VUM.git'
             }
         }
+        stage('Go to file') {
+            steps {
+                sh """
+                cd 'SW Metrics'
+                . ../venv/bin/activate
+                """
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh """
