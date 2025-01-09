@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/username/your-repo.git'
+            }
+        }
+        stage('Install Dependencies') {
+            steps {
+                sh """
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install --upgrade pip
+                pip install -r requirements.txt
+                """
+            }
+        }
+        stage('Pre-commit') {
+            steps {
+                sh """
+                . venv/bin/activate
+                pre-commit run --all-files
+                """
+            }
+        }
+        stage('Lint') {
+            steps {
+                sh """
+                . venv/bin/activate
+                pylint round_tdd.py
+                """
+            }
+        }
+        stage('Type Check') {
+            steps {
+                sh """
+                . venv/bin/activate
+                mypy round_tdd.py
+                """
+            }
+        }
+        stage('Test') {
+            steps {
+                sh """
+                . venv/bin/activate
+                coverage run -m pytest round_tdd.py
+                coverage report -m
+                """
+            }
+        }
+    }
+    post {
+        always {
+        }
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
+        }
+    }
+}
