@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/username/your-repo.git'
+                git branch: 'main', url: 'https://github.com/rconmydrec/VUM.git'
             }
         }
         stage('Install Dependencies') {
