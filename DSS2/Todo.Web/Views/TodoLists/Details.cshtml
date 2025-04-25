@@ -1,0 +1,56 @@
+﻿@model Todo.Web.Models.TodoListViewModel
+@{
+    ViewData["Title"] = "Todo List Details";
+    var tasks = (IEnumerable<Todo.Web.Models.TodoTaskViewModel>)ViewBag.Tasks
+                ?? Enumerable.Empty<Todo.Web.Models.TodoTaskViewModel>();
+}
+
+<h1>Todo List Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.Description</dd>
+
+    <dt class="col-sm-2">Date</dt>
+    <dd class="col-sm-10">@Model.Date.ToShortDateString()</dd>
+
+    <dt class="col-sm-2">Active</dt>
+    <dd class="col-sm-10">@Model.IsActive</dd>
+
+    <dt class="col-sm-2">Tasks total</dt>
+    <dd class="col-sm-10">@Model.NumberOfTasks</dd>
+</dl>
+
+<h3 class="mt-4">Tasks</h3>
+
+@if (!tasks.Any())
+{
+    <p><em>No tasks yet.</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Description</th>
+                <th>Due date</th>
+                <th>Completed</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var t in tasks)
+        {
+            <tr>
+                <td>@t.Description</td>
+                <td>@t.DueDate.ToShortDateString()</td>
+                <td>@t.IsCompleted</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back</a>
+</p>

@@ -1,0 +1,26 @@
+﻿@model Todo.Web.Models.TodoTaskViewModel
+@{
+    ViewData["Title"] = "Todo Task Details";
+    var listName = (string)ViewBag.ListName ?? "(unknown)";
+}
+
+<h1>Task Details</h1>
+
+<dl class="row">
+    <dt class="col-sm-3">Description</dt>
+    <dd class="col-sm-9">@Model.Description</dd>
+
+    <dt class="col-sm-3">Due date</dt>
+    <dd class="col-sm-9">@Model.DueDate.ToShortDateString()</dd>
+
+    <dt class="col-sm-3">Completed</dt>
+    <dd class="col-sm-9">@Model.IsCompleted</dd>
+
+    <dt class="col-sm-3">Todo List</dt>
+    <dd class="col-sm-9">@listName</dd>
+</dl>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back</a>
+</p>

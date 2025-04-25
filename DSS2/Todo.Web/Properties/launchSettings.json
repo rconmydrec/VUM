@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "Todo.Web": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "WEB_API_URL": "http://localhost:5000/"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5001"
+    }
+  }
+}
