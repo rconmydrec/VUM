@@ -34,7 +34,6 @@
 - **Jetpack Components**:
   - **Navigation Component** (NavHost, NavGraph) for in-app navigation.
   - **ViewBinding** for type-safe view access.
-  - **WorkManager** for reliable background tasks.
 - **Package Structure**: Organized into `data/`, `ui/`, and `work/` modules.
 
 ## Dependencies
@@ -42,8 +41,7 @@
 - AppCompat  
 - Material Components  
 - Navigation Fragment & UI KTX  
-- RecyclerView  
-- WorkManager Runtime KTX  
+- RecyclerView
 
 ## Setup & Run
 1. **Clone the repository**  
