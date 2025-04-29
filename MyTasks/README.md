@@ -1,6 +1,5 @@
 # MyTasks
 
-![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Kotlin](https://img.shields.io/badge/Language-Kotlin-orange.svg)
 ![Android](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 
@@ -11,7 +10,6 @@
 - [Dependencies](#dependencies)
 - [Setup & Run](#setup--run)
 - [Usage](#usage)
-- [License](#license)
 
 ---
 
@@ -65,6 +63,3 @@
 4. **Long-press** an item to delete it.
 5. Tap a task to open the Calendar.
 6. Toggle **Dark Mode** or **Clear completed** tasks in Settings.
-
-## License
-Distributed under the **MIT License**. See [LICENSE](LICENSE) for details.
