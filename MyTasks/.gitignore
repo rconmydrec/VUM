@@ -1,0 +1,54 @@
+# Gradle files
+.gradle/
+build/
+**/build/
+
+# Local configuration (SDK path, API keys, etc)
+local.properties
+
+# IntelliJ / Android Studio
+.idea/
+*.iml
+*.iws
+
+# Kotlin/Java intermediate files
+*.class
+*.jar
+*.war
+*.ear
+
+# Generated files
+gen/
+captures/
+.externalNativeBuild/
+
+# Android artifacts
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+
+# Native / NDK
+obj/
+*.so
+
+# Signing keys
+*.jks
+*.keystore
+
+# Proguard
+/outputs/mapping/
+
+# Crashlytics / Firebase
+crashlytics-build.properties
+
+# Built docs
+docs/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# VS Code settings
+.vscode/

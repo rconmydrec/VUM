@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/taskListFragment"
+          android:title="Tasks"
+          android:icon="@drawable/ic_list" />
+    <item android:id="@+id/addTaskFragment"
+          android:title="Add"
+          android:icon="@drawable/ic_add" />
+    <item android:id="@+id/settingsFragment"
+          android:title="Settings"
+          android:icon="@drawable/ic_settings" />
+</menu>
